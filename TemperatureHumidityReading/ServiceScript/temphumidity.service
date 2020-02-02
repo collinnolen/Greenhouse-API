@@ -1,0 +1,13 @@
+[Unit]
+Description=Tempature and Humidity monitor service.
+
+[Service]
+ExecStart=/usr/bin/python3 dh22.py &
+WorkingDirectory=/home/pi/Documents/Greenhouse-API/TemperatureHumidityReading/
+StandardOutput=inherit
+StandardError=journal
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target

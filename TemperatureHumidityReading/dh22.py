@@ -74,7 +74,7 @@ while True:
         if(toFile):
             fileName = date.today().strftime('%m-%d-%Y') + ".txt"
             file = open(directory + fileName, "a")
-            file.append(
+            file.write(
                 "Temp: {:.1f} *F \t Humidity: {}%\n".format((temperature*1.8), humidity))
             file.close()
         else:

@@ -47,7 +47,7 @@ for currentArgument, currentValue in arguments:
         print(("Using interval of %s seconds") % (currentValue))
         interval = currentArgument
     # TOFILE
-    elif currentArgument in ("-t", "--ToFile"):
+    elif currentArgument in ("-t", "--toFile"):
         # TRUE
         if(currentValue in ("t", "T", "TRUE", "true")):
             print("Writing results to file")

@@ -71,15 +71,17 @@ while True:
         temperature = dht.temperature
         humidity = dht.humidity
 
+        timestamp = date.now().strftime("%H:%M:%S")
+
         if(toFile):
-            fileName = date.today().strftime('%m-%d-%Y') + ".txt"
+            fileName = date.today().strftime("%m-%d-%Y") + ".txt"
             file = open(directory + fileName, "a")
             file.write(
-                "Temp: {:.1f} *F \t Humidity: {}%\n".format((temperature*1.8), humidity))
+                "TimeStamp: {} \t Temp: {:.1f} *F \t Humidity: {}%\n".format(timestamp, ((temperature*1.8) + 32), humidity))
             file.close()
         else:
             print(
-                "Temp: {:.1f} *F \t Humidity: {}%".format((temperature*1.8), humidity))
+                "TimeStamp: {} \t Temp: {:.1f} *F \t Humidity: {}%".format(timestamp, ((temperature*1.8) + 32), humidity))
 
     except RuntimeError as e:
         # Reading doesn't always work! Just print error and we'll try again

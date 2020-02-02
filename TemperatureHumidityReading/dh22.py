@@ -90,7 +90,8 @@ while True:
         if not toFile:
             print("Reading from DHT failure: ", e.args)
         else:
-            file.close()
+            if not file == None:
+                file.close()
     except OSError as e:
         print("Could not open file: %s" % directory)
         sys.exit(2)

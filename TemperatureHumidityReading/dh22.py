@@ -14,7 +14,7 @@ fullCmdArguments = sys.argv
 argumentList = fullCmdArguments[1:]
 
 # prepare the valid parameters
-unixOptions = "ho:v"
+unixOptions = "t:v"
 gnuOptions = ["help", "toFile=", "interval=", "directory="]
 
 # parse the arguments
@@ -47,7 +47,7 @@ for currentArgument, currentValue in arguments:
         print(("Using interval of %s seconds") % (currentValue))
         interval = currentArgument
     # TOFILE
-    elif currentArgument in ("-tf", "--ToFile"):
+    elif currentArgument in ("-t", "--ToFile"):
         # TRUE
         if(currentValue in ("t", "T", "TRUE", "true")):
             print("Writing results to file")
@@ -74,8 +74,8 @@ while True:
         if(toFile):
             fileName = date.today().strftime('%m-%d-%Y') + ".txt"
             file = open(directory + fileName, "a")
-            file.Write(
-                "Temp: {:.1f} *F \t Humidity: {}%".format((temperature*1.8), humidity))
+            file.append(
+                "Temp: {:.1f} *F \t Humidity: {}%\n".format((temperature*1.8), humidity))
             file.close()
         else:
             print(
@@ -85,6 +85,8 @@ while True:
         # Reading doesn't always work! Just print error and we'll try again
         if not toFile:
             print("Reading from DHT failure: ", e.args)
+        else:
+            file.close()
     except OSError as e:
         print("Could not open file: %s" % directory)
         sys.exit(2)

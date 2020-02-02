@@ -30,6 +30,7 @@ except getopt.error as err:
 toFile = True
 interval = 10
 directory = r"/media/usb/"
+file = None
 
 # Parsing the current argument's values
 for currentArgument, currentValue in arguments:

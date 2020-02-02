@@ -2,6 +2,7 @@ import getopt
 import sys
 import time
 from datetime import date
+from datetime import datetime
 
 # Sensor imports
 import adafruit_dht
@@ -71,7 +72,7 @@ while True:
         temperature = dht.temperature
         humidity = dht.humidity
 
-        timestamp = date.now().strftime("%H:%M:%S")
+        timestamp = datetime.now().strftime("%H:%M:%S")
 
         if(toFile):
             fileName = date.today().strftime("%m-%d-%Y") + ".txt"

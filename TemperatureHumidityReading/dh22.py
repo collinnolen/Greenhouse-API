@@ -1,9 +1,9 @@
 import time
  
-import ADAFRUIT_DHT
+import adafruit_dht
 import board
  
-dht = ADAFRUIT_DHT.DHT22(board.D2)
+dht = adafruit_dht.DHT22(board.D2)
  
 while True:
     try:

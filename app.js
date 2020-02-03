@@ -15,7 +15,7 @@ const fs = require("fs");
 
 const app = express();
 const port = process.env.PORT || "8000";
-const debug = true;
+const debug = false;
 
 /**
  * Routes Definitions
@@ -59,8 +59,8 @@ function fetchFileNames(startDate, daysBack) {
     if (day < 10) day = "0" + day;
     if (month < 10) month = "0" + month;
 
-    console.log(day + "-" + month + "-" + year);
-    fileNames.push(day + "-" + month + "-" + year);
+    console.log("Adding fileName: " + day + "-" + month + "-" + year + ".txt");
+    fileNames.push(day + "-" + month + "-" + year + ".txt");
     daysBack -= 1;
   }
 
@@ -77,8 +77,10 @@ function getFileData(fileNames) {
   if (debug) path = `C:\\Users\\colli\\Workspace\\testing\\`;
 
   fileNames.forEach(file => {
-    if (fs.existsSync(path + file + ".txt")) {
-      lrs = new LineReaderSync(path + file + ".txt");
+    if (fs.existsSync(path + file)) {
+      console.log("Reading file: " + path + file);
+
+      lrs = new LineReaderSync(path + file);
       lines = lrs.toLines();
 
       lines.forEach(line => {

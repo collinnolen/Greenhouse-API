@@ -71,7 +71,7 @@ function getFileData(fileNames) {
   const response = {};
   response.DataPoints = [];
 
-  let path = "/media/usb/";
+  let path = `/media/usb/`;
 
   //If debugging on windows PC use this path
   if (debug) path = `C:\\Users\\colli\\Workspace\\testing\\`;

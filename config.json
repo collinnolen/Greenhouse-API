@@ -1,5 +1,5 @@
 {
-  "debug": true,
+  "debug": false,
   "debugPathToDataFiles": "C:/Users/colli/Workspace/testing/",
   "pathToDataFiles": "/media/usb/"
 }

@@ -13,10 +13,10 @@ const app = express();
 const port = process.env.PORT || "8001";
 
 const TempHumidity = require(path.join(
-  __dirname + "/routers/TemperatureHumidity"
+  __dirname + "/Routers/TemperatureHumidity"
 ));
 const FileManagement = require(path.join(
-  __dirname + "/routers/FileManagement"
+  __dirname + "/Routers/FileManagement"
 ));
 
 /**
